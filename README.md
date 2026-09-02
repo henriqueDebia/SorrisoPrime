@@ -1,19 +1,20 @@
-Sorriso Prime
+# Sorriso Prime
 
 Landing page fictícia desenvolvida para uma clínica odontológica, com foco em apresentação institucional, serviços, equipe profissional e conversão para agendamento via WhatsApp.
 
 O projeto foi construído como peça de portfólio, com atenção especial à identidade visual, responsividade, acessibilidade e experiência do usuário.
 
-Preview
+## Preview
 
 <img width="1905" height="909" alt="image" src="https://github.com/user-attachments/assets/9c237b5e-fa80-4e97-92a1-561f70a48c14" />
 
-Tecnologias
+## Tecnologias
 React
 TypeScript
 Vite
 Tailwind CSS
-Funcionalidades
+
+## Funcionalidades
 Layout responsivo para desktop, tablet e mobile
 Navegação por âncoras
 Menu responsivo
@@ -24,7 +25,9 @@ Microinterações e animações sutis
 Imagens otimizadas para diferentes seções
 Suporte a prefers-reduced-motion
 SEO básico e metadados configurados
-Estrutura da página
+
+
+## Estrutura da página
 Header
 Hero
 Sobre a clínica
@@ -34,13 +37,14 @@ Depoimentos
 Perguntas frequentes
 Contato
 Footer
-Objetivo do projeto
+
+## Objetivo do projeto
 
 A proposta foi criar uma landing page para uma clínica odontológica com uma aparência mais humana e editorial, evitando padrões visuais genéricos comuns em landing pages.
 
 A identidade visual utiliza tons de azul, teal, bege e branco, acompanhados de fotografias com estética acolhedora e profissional.
 
-Executando localmente
+## Executando localmente
 
 Clone o repositório:
 
@@ -65,25 +69,28 @@ npm run build
 Para visualizar o build localmente:
 
 npm run preview
-Scripts
+
+## Scripts
 npm run dev
 npm run build
 npm run preview
 npm run lint
-Deploy
+
+## Deploy
 
 O projeto pode ser publicado facilmente através da Vercel.
 
 Após o deploy, adicionar aqui:
 
 https://seu-projeto.vercel.app
-Observação
+
+## Observação
 
 Este é um projeto fictício desenvolvido para fins de estudo e portfólio.
 
 A clínica Sorriso Prime, os profissionais, depoimentos, dados de contato e demais informações apresentadas são fictícios.
 
-Autor
+## Autor
 
 Henrique Debia
 
