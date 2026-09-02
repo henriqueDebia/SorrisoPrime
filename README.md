@@ -8,6 +8,8 @@ O projeto foi construído como peça de portfólio, com atenção especial à id
 
 <img width="1905" height="909" alt="image" src="https://github.com/user-attachments/assets/9c237b5e-fa80-4e97-92a1-561f70a48c14" />
 
+Link: https://sorriso-prime.vercel.app/#faq
+
 ## Tecnologias
 React
 TypeScript
