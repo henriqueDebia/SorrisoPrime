@@ -1,0 +1,295 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #1B3A5C;
+  --color-primary-light: #2A5A85;
+  --color-surface-blue: #E8F0F7;
+  --color-white: #FFFFFF;
+  --color-beige: #F5F0EB;
+  --color-text: #2D2D2D;
+  --color-text-muted: #6B6B6B;
+  --color-teal: #2A9D8F;
+  --color-teal-hover: #238B7E;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --text-display: 3.75rem;
+  --text-hero: 3rem;
+  --text-section: 2.5rem;
+  --text-service: 1.875rem;
+  --text-lead: 1.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--color-primary);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-size: var(--text-hero);
+    line-height: 1.05;
+  }
+
+  h2 {
+    font-size: var(--text-section);
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: var(--text-service);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.reveal-fade.is-visible {
+  opacity: 1;
+}
+
+/* Container-based reveal with staggered children */
+.reveal-child {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal-group.is-visible .reveal-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FAQ smooth expansion */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.faq-panel.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.faq-panel-inner {
+  overflow: hidden;
+}
+
+/* Hero initial intro */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-rise {
+  opacity: 0;
+  animation: hero-rise 0.5s ease-out forwards;
+}
+
+.hero-fade {
+  opacity: 0;
+  animation: hero-fade 0.5s ease-out forwards;
+}
+
+/* Image hover (desktop) */
+@media (hover: hover) {
+  .image-zoom {
+    transition: transform 0.5s ease-out;
+  }
+
+  .image-zoom:hover {
+    transform: scale(1.015);
+  }
+}
+
+/* Button hover / active */
+.cta {
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+@media (hover: hover) {
+  .cta:hover {
+    transform: translateY(-1px);
+  }
+
+  .cta:active {
+    transform: translateY(0);
+  }
+}
+
+/* Header nav underline */
+@media (hover: hover) {
+  .nav-link {
+    position: relative;
+    transition: color 0.15s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-teal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .reveal-child {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .faq-panel {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transition: none;
+  }
+
+  .hero-rise,
+  .hero-fade {
+    opacity: 1;
+    animation: none;
+  }
+
+  .image-zoom,
+  .image-zoom:hover {
+    transform: none;
+  }
+
+  .cta,
+  .cta:hover,
+  .cta:active {
+    transform: none;
+  }
+
+  .nav-link::after {
+    transition: none;
+  }
+}
+
